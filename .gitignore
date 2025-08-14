@@ -1,0 +1,67 @@
+# ======================
+# Java / Maven
+# ======================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ======================
+# Spring Boot / Logs
+# ======================
+/logs/
+/spring-boot-devtools.log
+
+# ======================
+# Flyway
+# ======================
+# Solo ignorar temporales si se generan
+src/main/resources/db/migration/*.tmp
+
+# ======================
+# Docker
+# ======================
+docker-compose.override.yml
+docker/.env
+docker/*.log
+.env
+# ======================
+# IDEs
+# ======================
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# ======================
+# Sistema operativo
+# ======================
+.DS_Store
+Thumbs.db

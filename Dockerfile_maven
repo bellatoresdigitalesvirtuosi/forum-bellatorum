@@ -1,0 +1,38 @@
+
+# ==========================
+# Etapa 1: Compilación con Maven
+# ==========================
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
+LABEL authors="HEAM"
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de Maven primero para aprovechar caché
+COPY pom.xml .
+COPY mvnw .
+COPY .mvn .mvn
+
+# Descargar dependencias sin compilar código (usa caché si pom.xml no cambió)
+RUN ./mvnw dependency:go-offline
+
+# Copiar todo el código
+COPY src src
+
+# Compilar y empaquetar el JAR (omitimos tests para acelerar)
+RUN ./mvnw clean package -DskipTests
+
+# ==========================
+# Etapa 2: Imagen final ligera
+# ==========================
+FROM eclipse-temurin:21-jre-jammy
+
+WORKDIR /app
+
+# Copiar el jar desde la etapa de compilación
+COPY --from=builder /app/target/forum-bellatorum-0.0.1-SNAPSHOT.jar app.jar
+
+# Puerto de la aplicación
+EXPOSE 8080
+
+# Comando de inicio
+ENTRYPOINT ["java", "-jar", "app.jar"]
