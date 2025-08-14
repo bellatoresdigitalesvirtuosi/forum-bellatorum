@@ -1,18 +1,18 @@
 # Forum Bellatorum
 
-**Forum Bellatorum** es un foro jerárquico y modular desarrollado por **Bellatores Digitales Virtuosi**, donde los usuarios pueden crear y suscribirse a categorías, tópicos y mensajes. El sistema soporta roles y permisos granulares, moderación de contenido y jerarquía de categorías.
+**Forum Bellatorum** es un foro jerárquico y modular desarrollado por **Bellatores Digitales Virtuosi** por **HEAM**, donde los usuarios pueden crear y suscribirse a categorías, tópicos y mensajes. El sistema soporta roles y permisos granulares, moderación de contenido y jerarquía de categorías.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-- **Backend:** Java 21 + Spring Boot
-- **Seguridad:** Spring Security con JWT y roles/permissions
-- **Base de datos:** PostgreSQL 16
-- **ORM:** Spring Data JPA + Hibernate
-- **Migraciones:** Flyway
-- **DTO & Validación:** Jakarta Validation + Lombok
-- **Contenedores:** Docker & Docker Compose
+* **Backend:** Java 21 + Spring Boot
+* **Seguridad:** Spring Security con JWT y roles/permissions
+* **Base de datos:** PostgreSQL 16
+* **ORM:** Spring Data JPA + Hibernate
+* **Migraciones:** Flyway
+* **DTO & Validación:** Jakarta Validation + Lombok
+* **Contenedores:** Docker & Docker Compose
 
 ---
 
@@ -92,7 +92,11 @@ networks:
 DB_USER=forum_user
 DB_PASSWORD=forum_pass
 DB_NAME=forum_db
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=admin123
 ```
+
+> Nota: El usuario administrador por defecto será `admin` con contraseña `admin123`.
 
 2. Ejecutar Docker Compose:
 
@@ -114,13 +118,13 @@ http://localhost:8080/forum-bellatorum
 
 Tablas principales:
 
-- **users**: usuarios registrados
-- **roles**: roles (ADMIN, MODERATOR, USER)
-- **permissions**: permisos granulares
-- **user\_roles** y **role\_permissions**: relaciones muchos a muchos
-- **categories**: categorías jerárquicas
-- **topics**: tópicos por categoría
-- **messages**: mensajes por tópico
+* **users**: usuarios registrados
+* **roles**: roles (ADMIN, MODERATOR, USER)
+* **permissions**: permisos granulares
+* **user\_roles** y **role\_permissions**: relaciones muchos a muchos
+* **categories**: categorías jerárquicas
+* **topics**: tópicos por categoría
+* **messages**: mensajes por tópico
 
 ---
 
@@ -156,17 +160,16 @@ Tablas principales:
 
 ## 🔐 Seguridad
 
-- JWT para autenticación
-- Roles: `ADMIN`, `MODERATOR`, `USER`
-- Permisos granulares (`CATEGORY_CREATE`, `CATEGORY_APPROVE`, `TOPIC_CREATE`, `MESSAGE_CREATE`, `MESSAGE_DELETE`)
-- Control de acceso mediante `@PreAuthorize`
+* JWT para autenticación
+* Roles: `ADMIN`, `MODERATOR`, `USER`
+* Permisos granulares (`CATEGORY_CREATE`, `CATEGORY_APPROVE`, `TOPIC_CREATE`, `MESSAGE_CREATE`, `MESSAGE_DELETE`)
+* Control de acceso mediante `@PreAuthorize`
 
 ---
 
 ## 📌 Notas
 
-- Las categorías tienen jerarquía y pueden tener moderadores asignados.
-- Los tópicos y mensajes están asociados a usuarios y categorías.
-- Validación de DTOs con `@Valid` y restricciones de Jakarta Validation.
-- Migración inicial `V1__init.sql` incluye roles, permisos y relaciones.
-
+* Las categorías tienen jerarquía y pueden tener moderadores asignados.
+* Los tópicos y mensajes están asociados a usuarios y categorías.
+* Validación de DTOs con `@Valid` y restricciones de Jakarta Validation.
+* Migración inicial `V1__init.sql` incluye roles, permisos y relaciones.
