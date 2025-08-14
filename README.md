@@ -178,4 +178,10 @@ Tablas principales:
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+**All Rights Reserved / Todos los Derechos Reservados**
+
+Copyright (c) 2025 Bellatores Digitales Virtuosi
+
+**English:** All rights reserved. No part of this software, its code, design, documentation, or ideas may be copied, modified, distributed, or used in any way without the express written permission of Bellatores Digitales Virtuosi. Any unauthorized use, reproduction, or distribution is strictly prohibited.
+
+**Español:** Todos los derechos reservados. Ninguna parte de este software, su código, diseño, documentación o ideas puede ser copiada, modificada, distribuida o utilizada de cualquier manera sin el permiso expreso por escrito de Bellatores Digitales Virtuosi. Cualquier uso, reproducción o distribución no autorizada está estrictamente prohibida.
