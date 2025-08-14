@@ -173,3 +173,9 @@ Tablas principales:
 * Los tópicos y mensajes están asociados a usuarios y categorías.
 * Validación de DTOs con `@Valid` y restricciones de Jakarta Validation.
 * Migración inicial `V1__init.sql` incluye roles, permisos y relaciones.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
